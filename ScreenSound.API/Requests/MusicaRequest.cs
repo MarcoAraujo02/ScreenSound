@@ -2,4 +2,6 @@
 
 namespace ScreenSound.API.Requests;
 
-public record MusicaRequest([Required] string nome, [Required] int ArtistaId, int anoLancamento);
+// código omitido
+
+public record MusicaRequest([Required] string nome, [Required] int ArtistaId, int anoLancamento, ICollection<GeneroRequest> Generos = null);
