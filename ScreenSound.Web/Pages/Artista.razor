@@ -1,0 +1,21 @@
+﻿@page "/Artistas"
+@inject ArtistaAPI artistaApi
+
+<h3>Artista</h3>
+@if (artistas is not null)
+{
+    foreach(var artista in artistas)
+    {
+        <p>@artista.Nome</p>
+    }
+}
+
+@code {
+    private ICollection<ArtistaResponse>? artistas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        artistas = await artistaApi.GetArtistasAsync();
+    }
+
+}
